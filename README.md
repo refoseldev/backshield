@@ -34,6 +34,10 @@ end)
 
 The rate limiter is a token bucket. A protected callback runs inside `xpcall`, so malformed input is logged without breaking the receiver.
 
+## Admin access and alerts
+
+By default, `backshield_scan`/`backshield_report` and HIGH-severity chat alerts are gated by superadmin. If [CAMI](https://github.com/glua/CAMI) is installed (ULX, SAM, and most admin mods provide it), BackShield instead registers and checks the `BackShield - View Reports` privilege, so non-superadmin groups can be granted access without editing this addon. Set `NotifyAdmins = false` in the config to disable in-game chat alerts.
+
 ## Configuration and allowlisting
 
 Edit `lua/backshield/sh_config.lua`. A specific finding can be suppressed without hiding the whole file:
